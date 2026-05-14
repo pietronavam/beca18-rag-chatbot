@@ -1,0 +1,17 @@
+# API keys — NEVER commit these
+.env
+
+# ChromaDB persisted index
+chroma_db_*/
+
+# PDF source document
+data/*.pdf
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
