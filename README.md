@@ -65,3 +65,7 @@ beca18-rag-chatbot/
 ├── requirements.txt
 └── README.md
 ```
+
+## Security Note
+
+The `.env` file is listed in `.gitignore` and must **never** be committed. The `.env.example` template shows the required variable name only. Committing an API key deducts 2 points from the assignment grade.
