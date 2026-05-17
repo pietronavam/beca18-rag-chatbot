@@ -10,11 +10,21 @@ The system never relies on the model's parametric knowledge and declines to answ
 
 ## Pipeline Summary
 
-The pipeline extracts text from the regulation PDF page by page, applies light cleaning, counts tokens with `tiktoken`, and splits the text into 400-token chunks (60-token overlap) using LangChain's `RecursiveCharacterTextSplitter`. Each chunk is embedded with `gemini-embedding-001` (768 dimensions, RETRIEVAL_DOCUMENT task type) and stored in a persistent ChromaDB collection using cosine distance. At query time, the user's question is embedded (RETRIEVAL_QUERY task type), the top-k nearest chunks are retrieved, and Gemini 2.5 Flash generates a grounded answer using only the retrieved context.
+The pipeline extracts text from the regulation PDF page by page, applies light cleaning, counts tokens with `tiktoken`, and splits the text into 400-token chunks (60-token overlap) using LangChain's `RecursiveCharacterTextSplitter`. Each chunk is embedded with `gemini-embedding-001` (3072 dimensions, RETRIEVAL_DOCUMENT task type) and stored in a persistent ChromaDB collection using cosine distance. At query time, the user's question is embedded (RETRIEVAL_QUERY task type), the top-k nearest chunks are retrieved, and Gemini 2.5 Flash generates a grounded answer using only the retrieved context.
 
 ## Installation and Setup
 
+**Python ≥ 3.10** is required.
+
+It is recommended to use a virtual environment:
+
 ```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+
 pip install -r requirements.txt
 ```
 
